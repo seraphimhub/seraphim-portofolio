@@ -3,63 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seraphim | Cyber Security Specialist</title>
+<title>Seraphim Security | Cyber Specialist</title>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: 'DM Sans', sans-serif;
-    background: #0b0b0b;
-    color: #eaeaea;
+:root {
+    --bg: #0a0a0a;
+    --card: #111;
+    --accent: #c9a96e;
+    --text: #eaeaea;
+    --sub: #888;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* Background grid */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#111 1px, transparent 1px),
+                      linear-gradient(90deg, #111 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* Container */
 .container {
     width: 90%;
     max-width: 1100px;
     margin: auto;
 }
 
+/* HERO */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
 }
 
-h1 {
-    font-size: 48px;
-    color: gold;
+.hero h1 {
+    font-size: 52px;
+    color: var(--accent);
+    letter-spacing: 2px;
 }
 
-p {
-    color: #aaa;
+.hero p {
+    margin-top: 10px;
+    color: var(--sub);
+    max-width: 500px;
 }
 
+/* Typing effect */
+.typing {
+    font-family: 'Space Mono', monospace;
+    margin-top: 10px;
+    color: var(--accent);
+}
+
+/* Button */
 .btn {
     display: inline-block;
-    padding: 12px 24px;
-    background: gold;
-    color: black;
+    margin-top: 25px;
+    padding: 12px 26px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
     text-decoration: none;
-    margin-top: 20px;
+    transition: 0.3s;
 }
 
+.btn:hover {
+    background: var(--accent);
+    color: black;
+}
+
+/* Sections */
 .section {
     padding: 80px 0;
 }
 
-.card {
-    background: #111;
-    padding: 20px;
-    border: 1px solid #222;
-    margin-top: 20px;
+h2 {
+    margin-bottom: 20px;
+    color: var(--accent);
 }
 
+/* Cards */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     gap: 20px;
+}
+
+.card {
+    background: var(--card);
+    padding: 20px;
+    border: 1px solid #1c1c1c;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+/* Terminal */
+.terminal {
+    background: black;
+    padding: 20px;
+    font-family: 'Space Mono', monospace;
+    color: #0f0;
+    margin-top: 20px;
+}
+
+/* Fade animation */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 1s;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 </style>
 </head>
@@ -70,67 +149,90 @@ p {
     <div>
         <h1>Seraphim Security</h1>
         <p>Cyber Security Specialist | Web Pentester | OSINT Analyst</p>
-        <p>I help businesses detect vulnerabilities, prevent cyber attacks, and secure digital assets.</p>
+        <div class="typing" id="typing"></div>
         <a href="#contact" class="btn">Hire Me</a>
     </div>
 </div>
 
-<div class="section container">
+<div class="section container fade">
     <h2>About Me</h2>
     <p>
-        Experienced in website penetration testing, vulnerability assessment, and OSINT investigations.
-        Focused on real-world attack simulation and practical security solutions.
+        I specialize in identifying vulnerabilities, simulating real-world attacks, and securing digital assets.
+        Focused on practical security testing and OSINT intelligence gathering.
     </p>
 </div>
 
-<div class="section container">
+<div class="section container fade">
     <h2>Skills</h2>
     <div class="grid">
-        <div class="card">Web Penetration Testing (OWASP)</div>
-        <div class="card">Burp Suite / Manual Testing</div>
-        <div class="card">OSINT & Reconnaissance</div>
-        <div class="card">Phishing Detection Analysis</div>
-        <div class="card">API Security Testing</div>
-        <div class="card">Automation & Python</div>
+        <div class="card">Web Pentesting (OWASP)</div>
+        <div class="card">Burp Suite & Manual Testing</div>
+        <div class="card">OSINT Reconnaissance</div>
+        <div class="card">API Security</div>
+        <div class="card">Automation (Python)</div>
+        <div class="card">Phishing Analysis</div>
     </div>
 </div>
 
-<div class="section container">
-    <h2>Services</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Website Pentest</h3>
-            <p>Identify vulnerabilities before attackers do.</p>
-        </div>
-        <div class="card">
-            <h3>OSINT Investigation</h3>
-            <p>Gather intelligence from public sources.</p>
-        </div>
-        <div class="card">
-            <h3>Security Audit</h3>
-            <p>Full assessment of website security posture.</p>
-        </div>
+<div class="section container fade">
+    <h2>Live Simulation</h2>
+    <div class="terminal">
+        > scanning target...<br>
+        > finding vulnerabilities...<br>
+        > analyzing headers...<br>
+        > exploit simulation complete ✔
     </div>
 </div>
 
-<div class="section container">
+<div class="section container fade">
     <h2>Portfolio</h2>
     <div class="card">
         <h3>Phishing Detection System</h3>
-        <p>Developed automated system to detect phishing websites based on structure analysis.</p>
-    </div>
-
-    <div class="card">
-        <h3>Website Security Assessment</h3>
-        <p>Performed vulnerability testing and reported critical findings.</p>
+        <p>Automated phishing detection system based on website structure and behavior analysis.</p>
     </div>
 </div>
 
-<div class="section container" id="contact">
+<div class="section container fade" id="contact">
     <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-    <p>GitHub: github.com/yourusername</p>
+    <p>Email: angelseraphim64@email.com</p>
+    <p>GitHub: github.com/seraphimhub</p>
 </div>
+
+<script>
+// Typing effect
+const text = [
+"Scanning vulnerabilities...",
+"Analyzing attack surface...",
+"Running OSINT modules..."
+];
+
+let i = 0, j = 0;
+function type() {
+    if (i < text.length) {
+        if (j < text[i].length) {
+            document.getElementById("typing").innerHTML += text[i][j];
+            j++;
+            setTimeout(type, 40);
+        } else {
+            i++; j = 0;
+            document.getElementById("typing").innerHTML = "";
+            setTimeout(type, 1000);
+        }
+    }
+}
+type();
+
+// Fade on scroll
+const faders = document.querySelectorAll('.fade');
+window.addEventListener('scroll', () => {
+    faders.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 50) {
+            el.classList.add('show');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
